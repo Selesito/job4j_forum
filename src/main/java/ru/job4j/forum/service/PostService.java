@@ -5,7 +5,6 @@ import ru.job4j.forum.model.Post;
 import ru.job4j.forum.repository.PostRepository;
 
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
 public class PostService {
@@ -28,7 +27,7 @@ public class PostService {
     }
 
     public Post findPostById(long id) {
-        return posts.findById(id).get();
+        Post post = posts.findById(id).get();
+        return post;
     }
-
 }
