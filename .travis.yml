@@ -1,8 +1,7 @@
-# используем язык java. Travis CI поддерживает другие языки тоже.
 language: java
 jdk:
   - openjdk14
-
+  -
 # создание БД для тестов
 services:
   - postgresql
@@ -12,19 +11,29 @@ before_install:
 # используем режим обычного пользователя для сборки проекта.
 sudo: false
 
-env:
-  global:
-    - CODECOV_TOKEN="3a37acdb-bfcf-404c-b33b-266ca71c3de7"
+install: true
+
+script: mvn clean package -DskipTests=true
 
 # после выполнения сборки запустить скрипт, который будет собирать статистику по JaCoCo
 # Здесь используется сторонни сервис https://codecov.io/
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
-# Отправлять уведомление на почтуyouremail@smtp.ru(Изменить на свою) если сборка упала
+# Отправлять уведомление на moroz.future@gmail.com если сборка упала
 notifications:
   email:
     recipients:
       - selesitomorozov@gmail.com
     on_success: never # default: change
     on_failure: always # default: always
+env:
+  global:
+    - CODECOV_TOKEN="3a37acdb-bfcf-404c-b33b-266ca71c3de7"
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: wxlEasO5luGYU/d3jURrj/Lwiv5bnUtXE2ZGf1jxoKGcChEpEfq7P/D1EjyhWMYh1i47bLSiKsNjv+xjcwcxpL7lUwpD0eNwhFZPLQreXabHk7y0urKyYBKAPMP8NwJJyQLgkD0l4ZaBFtZCkzupB7oaA9AXHOi0sxqwYbFa+MXig6Jkes1YMHQRlvzuCuKpWTNpU0uQLZVQM3jHWZp5KAfrBqn3J2fLH4C87rg1LOIHv/cawzGK9hnSnTuvF2vYOfV3PJjEP5VfymnzdeEU60nirpwE36NTGiNdT76b1NYxkF+epEnXcEo/3Ln32kzkMiY9fZc6w3DQ+xvcENAeFvdiyTLSKFrfPANYS3nMFrShODubmlz+A5yuSSjIHCd4Y2XB6/rF90NiiomAWIPO+OZYoMI0tfL+5CZoaR26kEm7dMzAr0GR95Sz3k9AECvkxo+5pJD9ZatYSK85mblkEzuu6nUDNt3omW4Ztbiuh2YA+FxN7cU28xe/no1G7qDNSAvQTUn47FfQQGeUrReDxi2so8Hrv/fWTmEld9acwzjVxvTAOPMTx0cvRS4OeCmwYlGLQkyH8L1pZ9D0VQJrxKy/atBKl/OMarSGCIhfUMlZEkH6A7s7dWGBNKtefflU/WhWzvP+IEGTZEoacRPiK8ZNivZF/jBtmxdNrm4N6fM=
+    app: immense-ravine-02598
+  skip_cleanup: true
