@@ -36,7 +36,7 @@
             </c:if>
         </ul>
     </div>
-    <h2 style="color: cadetblue">Все инциденты!</h2>
+    <h2 style="color: cadetblue">Форум job4j!</h2>
     <div class="card" style="width: 100%; margin-top: 25px">
         <table class="table table-bordered">
             <thead>
