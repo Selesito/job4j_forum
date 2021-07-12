@@ -1,7 +1,7 @@
 language: java
 jdk:
   - openjdk14
-  -
+
 # создание БД для тестов
 services:
   - postgresql
@@ -20,7 +20,7 @@ script: mvn clean package -DskipTests=true
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
-# Отправлять уведомление на moroz.future@gmail.com если сборка упала
+# Отправлять уведомление на selesitomorozov@gmail.com если сборка упала
 notifications:
   email:
     recipients:
@@ -34,6 +34,6 @@ env:
 deploy:
   provider: heroku
   api_key:
-    secure: wxlEasO5luGYU/d3jURrj/Lwiv5bnUtXE2ZGf1jxoKGcChEpEfq7P/D1EjyhWMYh1i47bLSiKsNjv+xjcwcxpL7lUwpD0eNwhFZPLQreXabHk7y0urKyYBKAPMP8NwJJyQLgkD0l4ZaBFtZCkzupB7oaA9AXHOi0sxqwYbFa+MXig6Jkes1YMHQRlvzuCuKpWTNpU0uQLZVQM3jHWZp5KAfrBqn3J2fLH4C87rg1LOIHv/cawzGK9hnSnTuvF2vYOfV3PJjEP5VfymnzdeEU60nirpwE36NTGiNdT76b1NYxkF+epEnXcEo/3Ln32kzkMiY9fZc6w3DQ+xvcENAeFvdiyTLSKFrfPANYS3nMFrShODubmlz+A5yuSSjIHCd4Y2XB6/rF90NiiomAWIPO+OZYoMI0tfL+5CZoaR26kEm7dMzAr0GR95Sz3k9AECvkxo+5pJD9ZatYSK85mblkEzuu6nUDNt3omW4Ztbiuh2YA+FxN7cU28xe/no1G7qDNSAvQTUn47FfQQGeUrReDxi2so8Hrv/fWTmEld9acwzjVxvTAOPMTx0cvRS4OeCmwYlGLQkyH8L1pZ9D0VQJrxKy/atBKl/OMarSGCIhfUMlZEkH6A7s7dWGBNKtefflU/WhWzvP+IEGTZEoacRPiK8ZNivZF/jBtmxdNrm4N6fM=
-    app: immense-ravine-02598
-  skip_cleanup: true
+    secure: Sb8pjcp6uCzaINzxP7Q1WX7blILXn7C+iPrtBcH8KE860lWvDjdZK8O4BGk0Wg4Sxk8uxjsLkR3vt7PyCQNqia8ZFR/dX4jN83iNEulWu0ipGnhfxJ900XdWmJq9g1wbdnwmjCEI0+EJ2HL69Fq7Iuzf3jCDf4qJbnryDdArIWt342dxp1qX1yoNGVZLFHwXuBc6TyHHvGgHU2lV0pbnQWrCHY5mvx2aiP3chR0XFH5jFrDx7KjUOTBBsLMFsBxVjm1zVIBJ/kGiOjpAN2jJitPHlXuvHDnZVqscDqJGnc+M4zdck8uh/48dbzEklEQiHwLEjLVf6H39dfdtzxfj/ilTn3ZF7MzjLXxGHdyd4eAjdGqbWcUYjVY5ApuF186RKnveJnGbFd9L7dFauRcRUzmkVxA0BA58IGsG83GVraCMvQgPxuFw2Kwz8Fuq1HgN5k6BvAuZSqX0Yqcw/I/YrAMnY2Oi4L70XVkZ4vjw2dV6QSZRfVCSOSKKr/c+kWiXWYnBmHKODbpVhN9M/dHs68HDIgiKVdmk1es8N2JZswaGF+QKr5V7rJtINWmW9jzVKTFEGuFzT62zEZojgEW5Lpus52HIyAQmfRFflChYN49lhx2N+4dJ33YtSpXbeEv+9N3f/TrtGs6A14XKO2tsKIPpvGowSr3PhHxEBbRLal4=
+  app: immense-ravine-02598
+
